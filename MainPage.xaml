@@ -76,7 +76,7 @@
                 <Ellipse Stroke="Black" Fill="#FFF3F3F3" Width="10" Height="10"/>
                 <Rectangle Stroke="Black" Fill="#FFFFFDFD" Width="10" Height="25"/>
             </StackPanel>
-            <TextBlock x:Name="gameOverText" Text="Game Over!!!!" TextWrapping="Wrap" FontFamily="Arial Black" FontSize="100" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Canvas.Left="455" Canvas.Top="243" Foreground="#FFD61E1E"/>
+            <TextBlock x:Name="gameOverText" Text="Game Over!!!!" TextWrapping="Wrap" FontFamily="Arial Black" FontSize="50" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Canvas.Left="455" Canvas.Top="243" Foreground="#FFD61E1E"/>
             <Rectangle x:Name="target" Height="50" Stroke="Black" Width="49" RenderTransformOrigin="0.5,0.5" Canvas.Left="1149.84" Canvas.Top="179.9" UseLayoutRounding="False" d:LayoutRounding="Auto" PointerEntered="target_PointerEntered">
                 <Rectangle.RenderTransform>
                     <CompositeTransform Rotation="45"/>
@@ -153,6 +153,8 @@
 
             </Grid>
         </Viewbox>
+        <TextBlock x:Name="textBlock1" Grid.Column="2" TextWrapping="Wrap" Text="Safe:" FocusVisualPrimaryBrush="#FFFA0909" Foreground="Red" FontSize="36" FontFamily="Constantia" FontWeight="Bold" FontStyle="Italic" Margin="0,0,0,69"/>
+        <TextBox x:Name="safeHumans" Grid.Column="2" HorizontalAlignment="Center" Margin="0,70,0,0" Text="" TextWrapping="Wrap" Width="160" Background="#6600FF03" SelectionHighlightColor="Red" FontSize="36" FontFamily="Calibri" FontWeight="Bold" FontStyle="Normal"/>
 
     </Grid>
 </Page>

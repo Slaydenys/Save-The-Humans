@@ -31,6 +31,7 @@ namespace Save_The_Humans
 
         bool humanCaptured = false;
 
+        int count = 1;
         public MainPage()
         {
             this.InitializeComponent();
@@ -59,7 +60,10 @@ namespace Save_The_Humans
                 humanCaptured = false;
                 startButton.Visibility = Visibility.Visible;
                 playArea.Children.Add(gameOverText);
-                NameApp.Text = " Try again Save The Humans";
+                NameApp.Text = " Try again Save The Humanns ";
+                count = 1;
+               
+                
             }
         }
 
@@ -75,6 +79,8 @@ namespace Save_The_Humans
 
         private void StartGame()
         {
+            
+            
             human.IsHitTestVisible = true;
             humanCaptured = false;
             progressBar.Value = 0;
@@ -105,7 +111,10 @@ namespace Save_The_Humans
         private void Enemy_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             if (humanCaptured)
-                EndTheGame();
+                    
+            EndTheGame();
+
+           
         }
 
         private void AnimateEnemy(ContentControl enemy, double from, double to, string propertyToAnimate)
@@ -141,16 +150,40 @@ namespace Save_The_Humans
 
         private void target_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            if(targetTimer.IsEnabled && humanCaptured)
+            
+            if (targetTimer.IsEnabled && humanCaptured)
             {
-                progressBar.Value = 0;
+                
+               // progressBar.Value = 0;
                 Canvas.SetLeft(target, random.Next(100, (int)playArea.ActualWidth - 100));
                 Canvas.SetTop(target, random.Next(100, (int)playArea.ActualHeight - 100));
                 Canvas.SetLeft(human, random.Next(100, (int)playArea.ActualWidth - 100));
                 Canvas.SetTop(human, random.Next(100, (int)playArea.ActualHeight - 100));
                 humanCaptured = false;
                 human.IsHitTestVisible = true;
+                
+                if(count <= 100)
+                {
+                 safeHumans.Text = count.ToString();
+
+                 count = count + 1;
+
+                 if (count == 11)
+
+                    {
+                        
+                        gameOverText.Text = "Victory, you heve safed ten humans our hero ";
+                       
+
+                    EndTheGame();
+
+                    }
+                 
+
+                }
+                
             }
+            
         }
 
         private void playArea_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -175,8 +208,21 @@ namespace Save_The_Humans
 
         private void playArea_PointerExited(object sender, PointerRoutedEventArgs e)
         {
+
             if (humanCaptured)
-                EndTheGame();
+            EndTheGame();
+
+            
+
+
+        }
+
+        
+          
         }
     }
-}
+
+        
+    
+
+
